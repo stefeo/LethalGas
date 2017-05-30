@@ -16,5 +16,23 @@ namespace LethalGas
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            // Create an instance of the MainScreen
+            MainScreen ms = new MainScreen();
+
+            // Add the User Control to the Form
+            this.Controls.Add(ms);
+
+            ms.Location = new Point((this.Width - ms.Width) / 2, (this.Height - ms.Height) / 2);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+           // if (e.KeyCode == Keys.Escape) { this.Close(); }
+        }
+
     }
 }
