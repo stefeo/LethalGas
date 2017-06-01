@@ -134,6 +134,39 @@
   <ItemGroup>
     <None Include="Resources\dylonIdle2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonStill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonStillR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonWalk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonWalk2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonWalk2R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonWalk1R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cover2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonWalk1RN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonWalk1N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Instructions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseScreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

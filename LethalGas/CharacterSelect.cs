@@ -48,6 +48,7 @@ namespace LethalGas
                 Form f = this.FindForm();
                 f.Controls.Remove(this);
                 f.Controls.Add(cs);
+                cs.Focus();
             }
 
             if (e.KeyCode == Keys.Escape)
@@ -59,6 +60,7 @@ namespace LethalGas
                 Form f = this.FindForm();
                 f.Controls.Remove(this);
                 f.Controls.Add(cs);
+                cs.Focus();
             }
             Refresh();
         }

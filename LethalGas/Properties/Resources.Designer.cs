@@ -83,6 +83,16 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cover2 {
+            get {
+                object obj = ResourceManager.GetObject("Cover2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dylonFart {
             get {
                 object obj = ResourceManager.GetObject("dylonFart", resourceCulture);
@@ -106,6 +116,106 @@ namespace LethalGas.Properties {
         internal static System.Drawing.Bitmap dylonIdle2 {
             get {
                 object obj = ResourceManager.GetObject("dylonIdle2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonStill {
+            get {
+                object obj = ResourceManager.GetObject("dylonStill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonStillR {
+            get {
+                object obj = ResourceManager.GetObject("dylonStillR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonWalk1 {
+            get {
+                object obj = ResourceManager.GetObject("dylonWalk1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonWalk1N {
+            get {
+                object obj = ResourceManager.GetObject("dylonWalk1N", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonWalk1R {
+            get {
+                object obj = ResourceManager.GetObject("dylonWalk1R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonWalk1RN {
+            get {
+                object obj = ResourceManager.GetObject("dylonWalk1RN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonWalk2 {
+            get {
+                object obj = ResourceManager.GetObject("dylonWalk2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonWalk2R {
+            get {
+                object obj = ResourceManager.GetObject("dylonWalk2R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Instructions {
+            get {
+                object obj = ResourceManager.GetObject("Instructions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pauseScreen {
+            get {
+                object obj = ResourceManager.GetObject("pauseScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
