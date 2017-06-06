@@ -76,6 +76,7 @@ namespace LethalGas
         List<Image> charactersL = new List<Image>();
 
         int img, imgStill;
+        int fartTimer;
         bool still, fart;
         bool pause;
         private void timer1_Tick(object sender, EventArgs e)
