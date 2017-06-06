@@ -16,18 +16,18 @@ namespace LethalGas
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            
+            Form1.mainGameMusic.Play();
         }
 
         private void mainGame_Load(object sender, EventArgs e)
         {
-            characters.Add(Properties.Resources.dylonStillR);
+            characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
             characters.Add(Properties.Resources.dylonWalk2R);
             characters.Add(Properties.Resources.dylonIdle1);
             characters.Add(Properties.Resources.dylonIdle2);
             characters.Add(Properties.Resources.dylonFart);
-            charactersL.Add(Properties.Resources.dylonStill);
+            charactersL.Add(Properties.Resources.dylonStillN);
             charactersL.Add(Properties.Resources.dylonWalk1N);
             charactersL.Add(Properties.Resources.dylonWalk2);
         }

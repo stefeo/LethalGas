@@ -132,9 +132,6 @@
     <None Include="Resources\dylonIdle1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dylonIdle2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\dylonStill.png" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +163,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pauseScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonStillN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonStillRN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dylonIdle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\funky beat.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

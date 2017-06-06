@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace LethalGas
 {
@@ -16,6 +17,8 @@ namespace LethalGas
         {
             InitializeComponent();
         }
+
+        public static SoundPlayer mainGameMusic = new SoundPlayer(Properties.Resources.funky_beat);
 
         private void Form1_Load(object sender, EventArgs e)
         {

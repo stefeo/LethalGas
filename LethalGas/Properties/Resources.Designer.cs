@@ -133,9 +133,29 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dylonStillN {
+            get {
+                object obj = ResourceManager.GetObject("dylonStillN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dylonStillR {
             get {
                 object obj = ResourceManager.GetObject("dylonStillR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonStillRN {
+            get {
+                object obj = ResourceManager.GetObject("dylonStillRN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -197,6 +217,15 @@ namespace LethalGas.Properties {
             get {
                 object obj = ResourceManager.GetObject("dylonWalk2R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream funky_beat {
+            get {
+                return ResourceManager.GetStream("funky_beat", resourceCulture);
             }
         }
         

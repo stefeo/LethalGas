@@ -54,13 +54,13 @@ namespace LethalGas
             if (e.KeyCode == Keys.Escape)
             {
                 // Create an instance of the SecondScreen
-                MainScreen cs = new MainScreen();
-                cs.Location = new Point(this.Left, this.Top);
+                MainScreen ms = new MainScreen();
+                ms.Location = new Point(this.Left, this.Top);
                 // Add the User Control to the Form
                 Form f = this.FindForm();
                 f.Controls.Remove(this);
-                f.Controls.Add(cs);
-                cs.Focus();
+                f.Controls.Add(ms);
+                ms.Focus();
             }
             Refresh();
         }
