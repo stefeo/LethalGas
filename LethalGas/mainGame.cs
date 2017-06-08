@@ -21,6 +21,9 @@ namespace LethalGas
 
         private void mainGame_Load(object sender, EventArgs e)
         {
+            Rectangle pic1 = new Rectangle(0, 0, 10, 10);
+            Pedestrian ped1 = new Pedestrian(0, 1, 4, "dink", characters, pic1);
+            peds.Add(ped1);
             characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
             characters.Add(Properties.Resources.dylonWalk2R);
@@ -42,7 +45,7 @@ namespace LethalGas
             {
                 pause = true;
             }
-            if (pause != true)
+            if (!pause)
             {
                 if (e.KeyCode == Keys.Right && fart == false) { right = true; }
                 if (e.KeyCode == Keys.Left && fart == false) { left = true; }
@@ -64,6 +67,7 @@ namespace LethalGas
             }
 
         }
+
         private void mainGame_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right) { right = false; }
@@ -74,6 +78,7 @@ namespace LethalGas
 
         List<Image> characters = new List<Image>();
         List<Image> charactersL = new List<Image>();
+        List<Pedestrian> peds = new List<Pedestrian>();
 
         int img, imgStill;
         int fartTimer;
@@ -81,21 +86,31 @@ namespace LethalGas
         bool pause;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(right == true)
+            #region Pedestrians
+
+            foreach(Pedestrian p in peds)
+            {
+                p.Move();
+                //label1.Text = ;
+            }
+
+            #endregion
+            if (right)
             {
                 left = false;
                 position +=5;
                 still = false;
                 imageChange();
             }
-            else if (left == true)
+            else if (left)
             {
                 right = false;
                 still = false;
                 position-=5;
                 imageChange();
             }
-            else {
+            else
+            {
                 still = true;
                 imgStill++;
                 if (imgStill == 60)
@@ -117,7 +132,15 @@ namespace LethalGas
 
         private void mainGame_Paint(object sender, PaintEventArgs e)
         {
-            if (still == false && right == true)
+            #region
+
+            foreach(Pedestrian p in peds)
+            {
+                e.Graphics.DrawImage(p.Images[0], p.pic);
+            }
+
+            #endregion
+            if (!still && right)
             {
                 if (img < 10)
                 {
@@ -136,7 +159,7 @@ namespace LethalGas
                     e.Graphics.DrawImage(characters[2], new Rectangle(position, this.Height - 300, 150, 300));
                 }
             }
-            else if (still == false && left == true)
+            else if (!still && left)
             {
                 if (img < 10)
                 {
@@ -155,7 +178,7 @@ namespace LethalGas
                     e.Graphics.DrawImage(charactersL[2], new Rectangle(position, this.Height - 300, 150, 300));
                 }
             }
-            else if (fart == true) { e.Graphics.DrawImage(characters[5], new Rectangle(position, this.Height-300, 150, 300)); }
+            else if (fart) { e.Graphics.DrawImage(characters[5], new Rectangle(position, this.Height-300, 150, 300)); }
           
             else
             {
@@ -169,7 +192,7 @@ namespace LethalGas
                 }
             }
 
-            if(pause == true)
+            if(pause)
             {
                 e.Graphics.DrawImage(Properties.Resources.pauseScreen, new Rectangle(this.Width/2 - 398/2, this.Height/2 - 181/2, 398, 181));
             }
