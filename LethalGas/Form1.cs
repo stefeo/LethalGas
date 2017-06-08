@@ -19,10 +19,10 @@ namespace LethalGas
         }
 
         public static SoundPlayer mainGameMusic = new SoundPlayer(Properties.Resources.funky_beat);
+        public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.fart);
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             // Create an instance of the MainScreen
             MainScreen ms = new MainScreen();
 
@@ -34,7 +34,7 @@ namespace LethalGas
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-           // if (e.KeyCode == Keys.Escape) { this.Close(); }
+            // if (e.KeyCode == Keys.Escape) { this.Close(); }
         }
 
     }
