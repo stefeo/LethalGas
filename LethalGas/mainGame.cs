@@ -45,7 +45,7 @@ namespace LethalGas
             charactersL.Add(Properties.Resources.dylonWalk2);
             lightPoints();
         }
-
+         
         public void lightPoints()
         {
             triangle[0] = new Point(0, 0);
@@ -240,7 +240,7 @@ namespace LethalGas
             e.Graphics.FillPolygon(backBrush, triangle);
             e.Graphics.FillPolygon(backBrush2, triangle1);
 
-
+             
             //FartMeter
             e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 50, fartTimer*2, 30);
             e.Graphics.FillRectangle(blockBrush2, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
