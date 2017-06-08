@@ -21,7 +21,11 @@ namespace LethalGas
 
         List<Image> characters = new List<Image>();
         List<Image> charactersL = new List<Image>();
+        List<Pedestrian> peds = new List<Pedestrian>();
+        Random randNum = new Random();
+        Rectangle pic1 = new Rectangle(0, 0, 10, 10);
 
+        int pedSpawnTimer;
         int img, imgStill;
         int fartTimer;
         bool still, fart, pause;
@@ -31,9 +35,8 @@ namespace LethalGas
 
         private void mainGame_Load(object sender, EventArgs e)
         {
-            Rectangle pic1 = new Rectangle(0, 0, 10, 10);
-            Pedestrian ped1 = new Pedestrian(0, 1, 4, "dink", characters, pic1);
-            peds.Add(ped1);
+            //Pedestrian ped1 = new Pedestrian(this.Width, -1, 3, "dink", charactersL, pic1);
+            //peds.Add(ped1);
             Form1.mainGameMusic.Play();
             characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
@@ -133,9 +136,6 @@ namespace LethalGas
             }
             else if (fartTimer < 260) { fartTimer++; }
         }
-        List<Image> characters = new List<Image>();
-        List<Image> charactersL = new List<Image>();
-        List<Pedestrian> peds = new List<Pedestrian>();
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -143,8 +143,11 @@ namespace LethalGas
             dayChange();
             fartMeter();
 
-            if (right && position < this.Width - 119)
             #region Pedestrians
+
+            pedSpawnTimer++;
+
+            SpawnNPC();
 
             foreach(Pedestrian p in peds)
             {
@@ -153,7 +156,7 @@ namespace LethalGas
             }
 
             #endregion
-            if (right)
+            if (right && position < this.Width - 119)
             {
                 left = false;
                 position += 5;
@@ -197,14 +200,52 @@ namespace LethalGas
 
         private void mainGame_Paint(object sender, PaintEventArgs e)
         {
-            #region
+            #region ped images
 
             foreach(Pedestrian p in peds)
             {
-                e.Graphics.DrawImage(p.Images[0], p.pic);
+                if (p.direction == 1)
+                {
+                    if (p.imgDex < 10)
+                    {
+                        e.Graphics.DrawImage(p.Images[0], p.pic);
+                    }
+                    if (p.imgDex < 20 && p.imgDex >= 10)
+                    {
+                        e.Graphics.DrawImage(p.Images[1], p.pic);
+                    }
+                    if (p.imgDex >= 20 && p.imgDex < 30)
+                    {
+                        e.Graphics.DrawImage(p.Images[0], p.pic);
+                    }
+                    if (p.imgDex >= 30 && p.imgDex <= 40)
+                    {
+                        e.Graphics.DrawImage(p.Images[2], p.pic);
+                    }
+                }
+                else if (p.direction == -1)
+                {
+                    if (p.imgDex < 10)
+                    {
+                        e.Graphics.DrawImage(p.Images[0], p.pic);
+                    }
+                    if (p.imgDex < 20 && p.imgDex >= 10)
+                    {
+                        e.Graphics.DrawImage(p.Images[1], p.pic);
+                    }
+                    if (p.imgDex >= 20 && p.imgDex < 30)
+                    {
+                        e.Graphics.DrawImage(p.Images[0], p.pic);
+                    }
+                    if (p.imgDex >= 30 && p.imgDex <= 40)
+                    {
+                        e.Graphics.DrawImage(p.Images[2], p.pic);
+                    }
+                }
             }
 
             #endregion
+
             if (!still && right)
             {
                 if (img < 10)
@@ -271,6 +312,41 @@ namespace LethalGas
             e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 50, fartTimer*2, 30);
             e.Graphics.FillRectangle(blockBrush2, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
             e.Graphics.FillRectangle(blockBrush3, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
+        }
+
+        public void SpawnNPC()
+        {
+            if (randNum.Next(0, 100) == 1)
+            {
+                if (randNum.Next(1,3) == 1)
+                {
+                    if (randNum.Next(1, 3) == 1)
+                    {
+                        Pedestrian ped = new Pedestrian(-100, 1, 2, "paul", characters, pic1);
+                        peds.Add(ped);
+                    }
+                    else
+                    {
+                        Pedestrian ped = new Pedestrian(-100, 1, 3, "paul", characters, pic1);
+                        peds.Add(ped);
+
+                    }
+                }
+
+                else
+                {
+                    if (randNum.Next(1, 3) == 1)
+                    {
+                        Pedestrian ped = new Pedestrian(this.Width, -1, 3, "phil", charactersL, pic1);
+                        peds.Add(ped);
+                    }
+                    else
+                    {
+                        Pedestrian ped = new Pedestrian(this.Width, -1, 2, "phil", charactersL, pic1);
+                        peds.Add(ped);
+                    }
+                }
+            }
         }
     }
 }

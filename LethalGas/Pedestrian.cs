@@ -16,11 +16,12 @@ namespace LethalGas
         public string type;
         public Rectangle pic;
         public List<Image> Images;
+        public int imgDex;
 
         public Pedestrian(int _position, int _direction, int _speed, string _type, List<Image> _Images, Rectangle _pic)
         {
             position.X = _position;
-            position.Y = 330;
+            position.Y = 320;
             direction = _direction;
             speed = _speed;
             type = _type;
@@ -29,12 +30,19 @@ namespace LethalGas
             pic.Width = 150;
             pic.Height = 300;
             pic.Location = position;
+            imgDex = 0;
         }
 
         public void Move()
         {
             position.X += direction * speed;
             pic.Location = position;
+
+            imgDex++;
+            if (imgDex == 40)
+            {
+                imgDex = 0;
+            }
         }
 
         public void Collide(/*fart*/)
