@@ -17,7 +17,9 @@ namespace LethalGas
             InitializeComponent();
             this.DoubleBuffered = true;
         }
-        Point[] triangle = new Point[12];
+        Point[] triangle = new Point[6];
+        Point[] triangle1 = new Point[4];
+
 
         List<Image> characters = new List<Image>();
         List<Image> charactersL = new List<Image>();
@@ -53,14 +55,13 @@ namespace LethalGas
             triangle[1] = new Point(0, this.Height-150);
             triangle[2] = new Point(this.Width - 226, this.Height - 445);
             triangle[3] = new Point(this.Width - 145, this.Height - 445);
-            triangle[4] = new Point(this.Width, this.Height - 320);
-            triangle[5] = new Point(this.Width, this.Height);
-            triangle[6] = new Point(this.Width - 111, this.Height);
-            triangle[7] = new Point(this.Width - 151, this.Height - 385);
-            triangle[8] = new Point(this.Width - 221, this.Height - 385);
-            triangle[9] = new Point(this.Width - 261, this.Height);
-            triangle[10] = new Point(this.Width, this.Height);
-            triangle[11] = new Point(this.Width, 0);
+            triangle[4] = new Point(this.Width, this.Height - 330);
+            triangle[5] = new Point(this.Width, 0);
+
+            triangle1[0] = new Point(this.Width - 136, this.Height);
+            triangle1[1] = new Point(this.Width - 151, this.Height - 385);
+            triangle1[2] = new Point(this.Width - 221, this.Height - 385);
+            triangle1[3] = new Point(this.Width - 236, this.Height);
         }
 
         private void mainGame_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -114,8 +115,8 @@ namespace LethalGas
         public void dayChange()
         {
             day++;
-            if (day < 250) { brightness++; }
-            else if (day >= 800 && day < 949) { brightness--; }
+            if (day < 230) { brightness++; }
+            else if (day >= 800 && day < 1029) { brightness--; }
             else if (day == 1600) { day = 0; }
             backBrush.Color = Color.FromArgb(brightness, 0, 0, 0);
         }
@@ -192,8 +193,8 @@ namespace LethalGas
         SolidBrush blockBrush2 = new SolidBrush(Color.Green);
         SolidBrush blockBrush3 = new SolidBrush(Color.Green);
         SolidBrush backBrush = new SolidBrush(Color.FromArgb(190,0,0,0));
-        SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(190, 0, 0, 0));
-        SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(190, 0, 0, 0));
+        SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(180, 0, 0, 0));
+        SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
         private void mainGame_Paint(object sender, PaintEventArgs e)
         {
@@ -266,6 +267,8 @@ namespace LethalGas
 
             //light
             e.Graphics.FillPolygon(backBrush, triangle);
+            e.Graphics.FillPolygon(backBrush2, triangle1);
+
 
             //FartMeter
             e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 50, fartTimer*2, 30);
