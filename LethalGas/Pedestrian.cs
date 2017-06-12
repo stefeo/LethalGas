@@ -45,9 +45,9 @@ namespace LethalGas
             }
         }
 
-        public void Collide(/*fart*/)
+        public bool Collide(/*fart*/)
         {
-
+            return true;
         }
     }
 }
