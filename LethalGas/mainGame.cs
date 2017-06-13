@@ -27,6 +27,7 @@ namespace LethalGas
         Random randNum = new Random();
         Rectangle pic1 = new Rectangle(0, 0, 10, 10);
 
+        int score;
         int pedSpawnTimer;
         int img, imgStill;
         int fartTimer;
@@ -108,6 +109,7 @@ namespace LethalGas
             }
 
         }
+
         private void mainGame_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right) { right = false; }
@@ -153,10 +155,13 @@ namespace LethalGas
             foreach(Pedestrian p in peds)
             {
                 p.Move();
-                //label1.Text = ;
+                if (p.Collide(position)) { score++; }
+                label1.Text = score + "";
+                label2.Text = position + "";
             }
 
             #endregion
+
             if (right && position < this.Width - 119)
             {
                 left = false;
