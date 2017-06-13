@@ -43,7 +43,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackgroundImage = global::LethalGas.Properties.Resources.mainGameBack1;
+            this.BackgroundImage = global::LethalGas.Properties.Resources.mainGameBackColored__1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Name = "mainGame";
             this.Size = new System.Drawing.Size(1020, 650);

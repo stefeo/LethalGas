@@ -29,9 +29,9 @@ namespace LethalGas
 
         int pedSpawnTimer;
         int img, imgStill;
-        int fartTimer;
+        int fartTimer, fartLevel;
         bool still, fart, pause;
-        int brightness, day;
+        int brightness, brightness2, day;
         bool right, left;
         int position;
 
@@ -107,12 +107,29 @@ namespace LethalGas
                 if (e.KeyCode == Keys.M) { brightness -= 10; }
             }
 
+            //gameOver
+            if(e.KeyCode == Keys.G)
+            {
+                // Create an instance of the SecondScreen
+                loseScreen cs = new loseScreen();
+                cs.Location = new Point(this.Left, this.Top);
+                // Add the User Control to the Form
+                Form f = this.FindForm();
+                f.Controls.Remove(this);
+                f.Controls.Add(cs);
+            }
+
         }
+
         private void mainGame_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right) { right = false; }
             if (e.KeyCode == Keys.Left) { left = false; }
-            if (e.KeyCode == Keys.Space) { fart = false; }
+            if (e.KeyCode == Keys.Space)
+            {
+                fart = false;
+                fartLevel = 0;
+            }
         }
 
         public void dayChange()
@@ -121,7 +138,14 @@ namespace LethalGas
             if (day < 230) { brightness++; }
             else if (day >= 800 && day < 1029) { brightness--; }
             else if (day == 1600) { day = 0; }
+
+            if (day > 60 && day <230) { brightness2++; }
+            else if (day >= 860 && day < 1029) { brightness2--; }
+            else if (day == 1600) { day = 0; }
+
             backBrush.Color = Color.FromArgb(brightness, 0, 0, 0);
+            backBrush2.Color = Color.FromArgb(brightness2, 0, 0, 0);
+
         }
 
         public void fartMeter()
@@ -134,6 +158,7 @@ namespace LethalGas
             if (fart && fartTimer > 0)
             {
                 fartTimer--;
+                fartLevel++;
             }
             else if (fartTimer < 260) { fartTimer++; }
         }
