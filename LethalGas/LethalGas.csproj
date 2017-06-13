@@ -65,6 +65,12 @@
     <Compile Include="InstructionScreen.Designer.cs">
       <DependentUpon>InstructionScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="loseScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="loseScreen.Designer.cs">
+      <DependentUpon>loseScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainGame.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InstructionScreen.resx">
       <DependentUpon>InstructionScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loseScreen.resx">
+      <DependentUpon>loseScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainGame.resx">
       <DependentUpon>mainGame.cs</DependentUpon>
@@ -187,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Long Fart Sound Effect.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainGameBackColored %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
