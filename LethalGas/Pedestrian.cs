@@ -33,6 +33,11 @@ namespace LethalGas
             imgDex = 0;
         }
 
+        public bool FartCheck()
+        {
+            return true;
+        }
+
         public void Move()
         {
             position.X += direction * speed;
@@ -45,9 +50,16 @@ namespace LethalGas
             }
         }
 
-        public bool Collide(/*fart*/)
+        public bool Collide(int x)
         {
-            return true;
+            if (Math.Abs(position.X - x) <= 75)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
