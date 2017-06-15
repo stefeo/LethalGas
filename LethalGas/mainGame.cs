@@ -72,18 +72,13 @@ namespace LethalGas
         {
             imgStill = 0;
             if (e.KeyCode == Keys.Escape) { pause = true; }
+
             if (!pause)
             {
                 if (e.KeyCode == Keys.Right && !fart ) { right = true; }
                 if (e.KeyCode == Keys.Left && !fart ) { left = true; }
                 if (e.KeyCode == Keys.Space)
                 { right = false; left = false; fart = true; }
-            }
-            if (pause != true)
-            {
-                if (e.KeyCode == Keys.Right && fart == false) { right = true; }
-                if (e.KeyCode == Keys.Left && fart == false) { left = true; }
-                if (e.KeyCode == Keys.Space) { right = false; left = false; fart = true; }
             }
             else
             {
@@ -97,6 +92,7 @@ namespace LethalGas
                     Form f = this.FindForm();
                     f.Controls.Remove(this);
                     f.Controls.Add(cs);
+                    cs.Focus();
                 }
             }
             if (brightness < 245)
@@ -118,6 +114,7 @@ namespace LethalGas
                 Form f = this.FindForm();
                 f.Controls.Remove(this);
                 f.Controls.Add(cs);
+                cs.Focus();
             }
 
         }

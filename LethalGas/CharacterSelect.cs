@@ -62,6 +62,16 @@ namespace LethalGas
                 f.Controls.Add(ms);
                 ms.Focus();
             }
+            if(e.KeyCode == Keys.M)
+            {
+                HighScoreScreen ms = new HighScoreScreen();
+                ms.Location = new Point(this.Left, this.Top);
+                // Add the User Control to the Form
+                Form f = this.FindForm();
+                f.Controls.Remove(this);
+                f.Controls.Add(ms);
+                ms.Focus();
+            }
             Refresh();
         }
 
