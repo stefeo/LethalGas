@@ -89,7 +89,7 @@ namespace LethalGas
             switch (selected)
             {
                 case 0:
-                    nameText1.ForeColor = Color.Red;
+                    nameText1.ForeColor = Color.Lime;
 
                     if (upArrowDown == true)
                     {
@@ -113,7 +113,7 @@ namespace LethalGas
                     break;
 
                 case 1:
-                    nameText2.ForeColor = Color.Red;
+                    nameText2.ForeColor = Color.Lime;
 
                     if (upArrowDown == true)
                     {
@@ -137,7 +137,7 @@ namespace LethalGas
                     break;
 
                 case 2:
-                    nameText3.ForeColor = Color.Red;
+                    nameText3.ForeColor = Color.Lime;
 
                     if (upArrowDown == true)
                     {
@@ -161,33 +161,29 @@ namespace LethalGas
                     break;
 
                 case 3:
-                    menuButton.ForeColor = Color.Red;
+                    menuButton.ForeColor = Color.Lime;
 
                     if (spaceDown == true)
                     {
-                        /* //play sound
-                         Form1.select.Stop();
-                         Form1.select.Play();
 
-                         Highscore hs = new Highscore(nameText1.Text + nameText2.Text + nameText3.Text, Convert.ToString(GameScreen.currentLevel), Convert.ToString(Form1.currentScore));
-                         hs.save(hs);
-                         hs.saveScores(Form1.highscoreList);
 
-                         // Goes to the game screen
+                        Highscore hs = new Highscore(nameText1.Text + nameText2.Text + nameText3.Text,Convert.ToString(0), Convert.ToString(Form1.currentScore));
+                        hs.save(hs);
+                        hs.saveScores(Form1.highscoreList);
+                        
 
-                         Form form = this.FindForm();
-                         Screens.MenuScreen ms = new Screens.MenuScreen();
+                        // Goes to the game screen
 
-                         ms.Location = new Point((form.Width - ms.Width) / 2, (form.Height - ms.Height) / 2);
-
-                         form.Controls.Add(ms);
-                         form.Controls.Remove(this);
-                         */
+                        Form form = this.FindForm();
+                        MainScreen ms = new MainScreen();
+                        ms.Location = new Point(this.Left, this.Top);
+                        form.Controls.Add(ms);
+                        form.Controls.Remove(this);
                     }
                     break;
 
                 case 4:
-                    playButton.ForeColor = Color.Red;
+                    //playButton.ForeColor = Color.Red;
 
                     if (spaceDown == true)
                     {
@@ -232,7 +228,7 @@ namespace LethalGas
                         break;
 
                     case 4:
-                        playButton.ForeColor = Color.White;
+                        //playButton.ForeColor = Color.White;
                         break;
                 }
             }

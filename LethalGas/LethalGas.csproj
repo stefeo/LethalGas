@@ -61,6 +61,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GasCloud.cs" />
+    <Compile Include="Highscore.cs" />
+    <Compile Include="HighScoreScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HighScoreScreen.Designer.cs">
+      <DependentUpon>HighScoreScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstructionScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +102,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HighScoreScreen.resx">
+      <DependentUpon>HighScoreScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructionScreen.resx">
       <DependentUpon>InstructionScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,18 +119,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -201,6 +211,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mainGameBackColored %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluePedoStill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluePedoStillR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluePedoWalk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluePedoWalk1R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluePedoWalk2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bluePedoWalk2R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedoStill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedoStillR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedoWalk1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedoWalk1R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedoWalk2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pedoWalk2R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highScoreScreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -73,6 +73,66 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bluePedoStill {
+            get {
+                object obj = ResourceManager.GetObject("bluePedoStill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluePedoStillR {
+            get {
+                object obj = ResourceManager.GetObject("bluePedoStillR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluePedoWalk1 {
+            get {
+                object obj = ResourceManager.GetObject("bluePedoWalk1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluePedoWalk1R {
+            get {
+                object obj = ResourceManager.GetObject("bluePedoWalk1R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluePedoWalk2 {
+            get {
+                object obj = ResourceManager.GetObject("bluePedoWalk2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluePedoWalk2R {
+            get {
+                object obj = ResourceManager.GetObject("bluePedoWalk2R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cover {
             get {
                 object obj = ResourceManager.GetObject("Cover", resourceCulture);
@@ -123,29 +183,9 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dylonStill {
-            get {
-                object obj = ResourceManager.GetObject("dylonStill", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap dylonStillN {
             get {
                 object obj = ResourceManager.GetObject("dylonStillN", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dylonStillR {
-            get {
-                object obj = ResourceManager.GetObject("dylonStillR", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -230,11 +270,31 @@ namespace LethalGas.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fart2 {
+            get {
+                object obj = ResourceManager.GetObject("fart2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream funky_beat {
             get {
                 return ResourceManager.GetStream("funky_beat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap highScoreScreen {
+            get {
+                object obj = ResourceManager.GetObject("highScoreScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -284,6 +344,66 @@ namespace LethalGas.Properties {
         internal static System.Drawing.Bitmap pauseScreen {
             get {
                 object obj = ResourceManager.GetObject("pauseScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedoStill {
+            get {
+                object obj = ResourceManager.GetObject("pedoStill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedoStillR {
+            get {
+                object obj = ResourceManager.GetObject("pedoStillR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedoWalk1 {
+            get {
+                object obj = ResourceManager.GetObject("pedoWalk1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedoWalk1R {
+            get {
+                object obj = ResourceManager.GetObject("pedoWalk1R", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedoWalk2 {
+            get {
+                object obj = ResourceManager.GetObject("pedoWalk2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pedoWalk2R {
+            get {
+                object obj = ResourceManager.GetObject("pedoWalk2R", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

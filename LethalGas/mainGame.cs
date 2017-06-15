@@ -86,14 +86,9 @@ namespace LethalGas
             {
                 if (e.KeyCode == Keys.Right && !fart ) { right = true; }
                 if (e.KeyCode == Keys.Left && !fart ) { left = true; }
-                if (e.KeyCode == Keys.Space)
-                {
-                    right = false;
-                    left = false;
-                    fart = true;
-                }
+                if (e.KeyCode == Keys.Space) { right = false; left = false; fart = true; }
             }
-
+            
             else
             {
                 if (e.KeyCode == Keys.Space) { pause = false; }
@@ -106,6 +101,7 @@ namespace LethalGas
                     Form f = this.FindForm();
                     f.Controls.Remove(this);
                     f.Controls.Add(cs);
+                    cs.Focus();
                 }
             }
             if (brightness < 245)
@@ -127,6 +123,7 @@ namespace LethalGas
                 Form f = this.FindForm();
                 f.Controls.Remove(this);
                 f.Controls.Add(cs);
+                cs.Focus();
             }
 
         }
