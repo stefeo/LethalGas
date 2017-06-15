@@ -18,10 +18,17 @@ namespace LethalGas
 
         List<Image> characters = new List<Image>();
         List<Image> charactersL = new List<Image>();
+
+        List<Image> pedImages = new List<Image>();
+        List<Image> pedImages2 = new List<Image>();
+        List<Image> pedImagesL = new List<Image>();
+        List<Image> pedImages2L = new List<Image>();
+
         List<Pedestrian> peds = new List<Pedestrian>();
         List<GasCloud> farts = new List<GasCloud>();
         Random randNum = new Random();
         Rectangle pic1 = new Rectangle(0, 0, 10, 10);
+        Rectangle playerRect = new Rectangle();
 
         SolidBrush blockBrush = new SolidBrush(Color.Green);
         SolidBrush blockBrush2 = new SolidBrush(Color.Green);
@@ -50,6 +57,7 @@ namespace LethalGas
             //Pedestrian ped1 = new Pedestrian(this.Width, -1, 3, "dink", charactersL, pic1);
             //peds.Add(ped1);
             Form1.mainGameMusic.Play();
+
             characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
             characters.Add(Properties.Resources.dylonWalk2R);
@@ -59,7 +67,30 @@ namespace LethalGas
             charactersL.Add(Properties.Resources.dylonStillN);
             charactersL.Add(Properties.Resources.dylonWalk1N);
             charactersL.Add(Properties.Resources.dylonWalk2);
+
+            pedImages.Add(Properties.Resources.pedoStillR);
+            pedImages.Add(Properties.Resources.pedoWalk1R);
+            pedImages.Add(Properties.Resources.pedoWalk2R);
+            pedImages.Add(Properties.Resources.pedoStillR);
+            
+            pedImagesL.Add(Properties.Resources.pedoStill);
+            pedImagesL.Add(Properties.Resources.pedoWalk1);
+            pedImagesL.Add(Properties.Resources.pedoWalk2);
+            pedImagesL.Add(Properties.Resources.pedoStill);
+
+            pedImages2.Add(Properties.Resources.bluePedoStillR);
+            pedImages2.Add(Properties.Resources.bluePedoWalk1R);
+            pedImages2.Add(Properties.Resources.bluePedoWalk2R);
+            pedImages2.Add(Properties.Resources.bluePedoStillR);
+
+            pedImages2L.Add(Properties.Resources.bluePedoStill);
+            pedImages2L.Add(Properties.Resources.bluePedoWalk1);
+            pedImages2L.Add(Properties.Resources.bluePedoWalk2);
+            pedImages2L.Add(Properties.Resources.bluePedoStill);
+
             lightPoints();
+
+            playerRect = new Rectangle(position, this.Height - 329, 150, 300);
         }
          
         public void lightPoints()
@@ -80,7 +111,7 @@ namespace LethalGas
         private void mainGame_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             imgStill = 0;
-            if (e.KeyCode == Keys.Escape) { pause = true; }
+            if (e.KeyCode == Keys.Escape) { pause = true; timer1.Enabled = false; Refresh(); }
 
             if (!pause)
             {
@@ -91,7 +122,7 @@ namespace LethalGas
             
             else
             {
-                if (e.KeyCode == Keys.Space) { pause = false; }
+                if (e.KeyCode == Keys.Space) { pause = false; timer1.Enabled = true; Refresh(); }
                 if(e.KeyCode == Keys.M)
                 {
                     // Create an instance of the SecondScreen
@@ -228,10 +259,16 @@ namespace LethalGas
                 foreach(GasCloud f in farts)
                 {
                     if (p.Collide(f.rect)) { score++; }
+                    if (p.FartCheck(f.rect, playerRect))
+                    {
+                        //lose
+                    }
                 }
             }
 
             #endregion
+
+            playerRect.X = position;
 
             if (right && position < this.Width - 119)
             {
@@ -321,7 +358,7 @@ namespace LethalGas
             foreach (GasCloud f in farts)
             {
                 Rectangle r = new Rectangle(f.x, f.y, f.size.Width, f.size.Height);
-                e.Graphics.FillRectangle(blockBrush, r);
+                e.Graphics.DrawImage(Properties.Resources.fart2, r);
             }
 
             #endregion
@@ -330,51 +367,51 @@ namespace LethalGas
             {
                 if (img < 10)
                 {
-                    e.Graphics.DrawImage(characters[0], new Rectangle(position, this.Height-329, 150, 300));
+                    e.Graphics.DrawImage(characters[0], playerRect);
                 }
                 if (img < 20 && img >= 10)
                 {
-                    e.Graphics.DrawImage(characters[1], new Rectangle(position, this.Height -329, 150, 300));
+                    e.Graphics.DrawImage(characters[1], playerRect);
                 }
                 if (img >= 20 && img < 30)
                 {
-                    e.Graphics.DrawImage(characters[0], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(characters[0], playerRect);
                 }
                 if (img >= 30 && img <= 40)
                 {
-                    e.Graphics.DrawImage(characters[2], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(characters[2], playerRect);
                 }
             }
             else if (!still && left)
             {
                 if (img < 10)
                 {
-                    e.Graphics.DrawImage(charactersL[0], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(charactersL[0], playerRect);
                 }
                 if (img < 20 && img >= 10)
                 {
-                    e.Graphics.DrawImage(charactersL[1], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(charactersL[1], playerRect);
                 }
                 if (img >= 20 && img < 30)
                 {
-                    e.Graphics.DrawImage(charactersL[0], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(charactersL[0], playerRect);
                 }
                 if (img >= 30 && img <= 40)
                 {
-                    e.Graphics.DrawImage(charactersL[2], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(charactersL[2], playerRect);
                 }
             }
-            else if (fart) { e.Graphics.DrawImage(characters[5], new Rectangle(position, this.Height-329, 150, 300)); }
+            else if (fart) { e.Graphics.DrawImage(characters[5], playerRect); }
           //if player is not moving
             else
             {
                 if (imgStill < 30)
                 {
-                    e.Graphics.DrawImage(characters[3], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(characters[3], playerRect);
                 }
                 if (imgStill <= 60 && imgStill >= 30)
                 {
-                    e.Graphics.DrawImage(characters[4], new Rectangle(position, this.Height - 329, 150, 300));
+                    e.Graphics.DrawImage(characters[4], playerRect);
                 }
             }
 
@@ -398,20 +435,37 @@ namespace LethalGas
 
         public void SpawnNPC()
         {
-            if (randNum.Next(0, 100) == 1)
-            {
-                if (randNum.Next(1,3) == 1)
-                {
+            if (randNum.Next(0, 180) == 1)
+            {//charcter randomness
+                if (randNum.Next(1, 3) == 1)
+                {//side random
                     if (randNum.Next(1, 3) == 1)
-                    {
-                        Pedestrian ped = new Pedestrian(-100, 1, 2, "paul", characters, pic1);
-                        peds.Add(ped);
+                    {//speed rndom
+                        if (randNum.Next(1, 3) == 1)
+                        {
+                            Pedestrian ped = new Pedestrian(-100, 1, 2, "paul", pedImages, pic1);
+                            peds.Add(ped);
+                        }
+                        else
+                        {
+                            Pedestrian ped = new Pedestrian(-100, 1, 3, "paul", pedImages, pic1);
+                            peds.Add(ped);
+
+                        }
                     }
+
                     else
                     {
-                        Pedestrian ped = new Pedestrian(-100, 1, 3, "paul", characters, pic1);
-                        peds.Add(ped);
-
+                        if (randNum.Next(1, 3) == 1)
+                        {
+                            Pedestrian ped = new Pedestrian(this.Width, -1, 3, "phil", pedImagesL, pic1);
+                            peds.Add(ped);
+                        }
+                        else
+                        {
+                            Pedestrian ped = new Pedestrian(this.Width, -1, 2, "phil", pedImagesL, pic1);
+                            peds.Add(ped);
+                        }
                     }
                 }
 
@@ -419,13 +473,31 @@ namespace LethalGas
                 {
                     if (randNum.Next(1, 3) == 1)
                     {
-                        Pedestrian ped = new Pedestrian(this.Width, -1, 3, "phil", charactersL, pic1);
-                        peds.Add(ped);
+                        if (randNum.Next(1, 3) == 1)
+                        {
+                            Pedestrian ped = new Pedestrian(-100, 1, 2, "paul", pedImages2, pic1);
+                            peds.Add(ped);
+                        }
+                        else
+                        {
+                            Pedestrian ped = new Pedestrian(-100, 1, 3, "paul", pedImages2, pic1);
+                            peds.Add(ped);
+
+                        }
                     }
+
                     else
                     {
-                        Pedestrian ped = new Pedestrian(this.Width, -1, 2, "phil", charactersL, pic1);
-                        peds.Add(ped);
+                        if (randNum.Next(1, 3) == 1)
+                        {
+                            Pedestrian ped = new Pedestrian(this.Width, -1, 3, "phil", pedImages2L, pic1);
+                            peds.Add(ped);
+                        }
+                        else
+                        {
+                            Pedestrian ped = new Pedestrian(this.Width, -1, 2, "phil", pedImages2L, pic1);
+                            peds.Add(ped);
+                        }
                     }
                 }
             }
@@ -450,10 +522,6 @@ namespace LethalGas
             {
                 farts.RemoveAt(i);
             }
-        }
-
-        public void DrawFarts()
-        {
         }
     }
 }

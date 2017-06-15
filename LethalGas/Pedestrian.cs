@@ -33,9 +33,16 @@ namespace LethalGas
             imgDex = 0;
         }
 
-        public bool FartCheck()
+        public bool FartCheck(Rectangle fart, Rectangle player)
         {
-            return true;
+            if (fart.IntersectsWith(player) && fart.IntersectsWith(pic))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Move()
