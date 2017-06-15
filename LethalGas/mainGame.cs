@@ -7,25 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace LethalGas
 {
     public partial class mainGame : UserControl
     {
-        public mainGame()
-        {
-            InitializeComponent();
-            this.DoubleBuffered = true;
-        }
         Point[] triangle = new Point[6];
         Point[] triangle1 = new Point[4];
-
 
         List<Image> characters = new List<Image>();
         List<Image> charactersL = new List<Image>();
         List<Pedestrian> peds = new List<Pedestrian>();
+        List<GasCloud> farts = new List<GasCloud>();
         Random randNum = new Random();
         Rectangle pic1 = new Rectangle(0, 0, 10, 10);
+
+        SolidBrush blockBrush = new SolidBrush(Color.Green);
+        SolidBrush blockBrush2 = new SolidBrush(Color.Green);
+        SolidBrush blockBrush3 = new SolidBrush(Color.Green);
+        SolidBrush backBrush = new SolidBrush(Color.FromArgb(190, 0, 0, 0));
+        SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(180, 0, 0, 0));
+        SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
         int score;
         int pedSpawnTimer;
@@ -35,6 +38,12 @@ namespace LethalGas
         int brightness, brightness2, day;
         bool right, left;
         int position;
+
+        public mainGame()
+        {
+            InitializeComponent();
+            this.DoubleBuffered = true;
+        }
 
         private void mainGame_Load(object sender, EventArgs e)
         {
@@ -72,19 +81,19 @@ namespace LethalGas
         {
             imgStill = 0;
             if (e.KeyCode == Keys.Escape) { pause = true; }
+
             if (!pause)
             {
                 if (e.KeyCode == Keys.Right && !fart ) { right = true; }
                 if (e.KeyCode == Keys.Left && !fart ) { left = true; }
                 if (e.KeyCode == Keys.Space)
-                { right = false; left = false; fart = true; }
+                {
+                    right = false;
+                    left = false;
+                    fart = true;
+                }
             }
-            if (pause != true)
-            {
-                if (e.KeyCode == Keys.Right && fart == false) { right = true; }
-                if (e.KeyCode == Keys.Left && fart == false) { left = true; }
-                if (e.KeyCode == Keys.Space) { right = false; left = false; fart = true; }
-            }
+
             else
             {
                 if (e.KeyCode == Keys.Space) { pause = false; }
@@ -122,7 +131,7 @@ namespace LethalGas
 
         }
 
-        private void mainGame_KeyUp(object sender, KeyEventArgs e)
+        private void mainGame_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right) { right = false; }
             if (e.KeyCode == Keys.Left) { left = false; }
@@ -166,9 +175,48 @@ namespace LethalGas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            #region fartlLevel
+            if(Keyboard.IsKeyDown(Key.Space))
+            {
+                if (fartLevel > 3)
+                {
+                    try
+                    {
+                    //    farts[farts.Count - 1].size.Width+= 2;
+                    //    farts[farts.Count - 1].size.Height+= 2;
+                    //    farts[farts.Count - 1].x--;
+                    //    farts[farts.Count - 1].y--;
+                        farts[farts.Count - 1].cap = fartLevel;
+                    }
+                    catch
+                    {
+                        GasCloud g = new GasCloud(position + 75, this.Height - 160, fartLevel);
+                        farts.Add(g);
+                    }
+                    //farts.RemoveAt(farts.IndexOf(g) - 1);
+                }
+                else
+                {
+                    GasCloud g = new GasCloud(position + 75, this.Height - 160, fartLevel);
+                    farts.Add(g);
+                }
+
+                fartLevel++;
+            }
+            else
+            {
+                fartLevel = 0;
+            }
+            #endregion
 
             dayChange();
             fartMeter();
+
+            #region Farts
+
+            GrowFarts();
+
+            #endregion
 
             #region Pedestrians
 
@@ -179,9 +227,11 @@ namespace LethalGas
             foreach(Pedestrian p in peds)
             {
                 p.Move();
-                if (p.Collide(position)) { score++; }
-                label1.Text = score + "";
-                label2.Text = position + "";
+
+                foreach(GasCloud f in farts)
+                {
+                    if (p.Collide(f.rect)) { score++; }
+                }
             }
 
             #endregion
@@ -220,13 +270,6 @@ namespace LethalGas
                 img = 0;
             }
         }
-
-        SolidBrush blockBrush = new SolidBrush(Color.Green);
-        SolidBrush blockBrush2 = new SolidBrush(Color.Green);
-        SolidBrush blockBrush3 = new SolidBrush(Color.Green);
-        SolidBrush backBrush = new SolidBrush(Color.FromArgb(190,0,0,0));
-        SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(180, 0, 0, 0));
-        SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
         private void mainGame_Paint(object sender, PaintEventArgs e)
         {
@@ -272,6 +315,16 @@ namespace LethalGas
                         e.Graphics.DrawImage(p.Images[2], p.pic);
                     }
                 }
+            }
+
+            #endregion
+
+            #region farts
+            
+            foreach (GasCloud f in farts)
+            {
+                Rectangle r = new Rectangle(f.x, f.y, f.size.Width, f.size.Height);
+                e.Graphics.FillRectangle(blockBrush, r);
             }
 
             #endregion
@@ -379,6 +432,31 @@ namespace LethalGas
                     }
                 }
             }
+        }
+
+        public void GrowFarts()
+        {
+            List<int> fartsToRemove = new List<int>();
+
+            foreach (GasCloud f in farts)
+            {
+                f.Grow();
+                if (f.age >= f.cap)
+                {
+                    fartsToRemove.Add(farts.IndexOf(f));
+                }
+            }
+
+            fartsToRemove.Reverse();
+
+            foreach(int i in fartsToRemove)
+            {
+                farts.RemoveAt(i);
+            }
+        }
+
+        public void DrawFarts()
+        {
         }
     }
 }
