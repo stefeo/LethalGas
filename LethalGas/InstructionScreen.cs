@@ -34,7 +34,7 @@ namespace LethalGas
             if (e.KeyCode == Keys.Escape)
             {
                 // Create an instance of the SecondScreen
-                CharacterSelect cs = new CharacterSelect();
+                HighScoreScreen cs = new HighScoreScreen();
                 cs.Location = new Point(this.Left, this.Top);
                 // Add the User Control to the Form
                 Form f = this.FindForm();

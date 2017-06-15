@@ -20,6 +20,17 @@ namespace LethalGas
 
         private void HighScoreScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
+            if (e.KeyCode == Keys.Space)
+            {
+                // Create an instance of the SecondScreen
+                InstructionScreen cs = new InstructionScreen();
+                cs.Location = new Point(this.Left, this.Top);
+                // Add the User Control to the Form
+                Form f = this.FindForm();
+                f.Controls.Remove(this);
+                f.Controls.Add(cs);
+                cs.Focus();
+            }
             if (e.KeyCode == Keys.Escape)
             {
                 // Create an instance of the SecondScreen
