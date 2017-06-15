@@ -12,6 +12,7 @@ namespace LethalGas
         public int x;
         public int y;
         public Size size;
+        public Rectangle rect;
         public int age;
         public int cap;
 
@@ -21,11 +22,24 @@ namespace LethalGas
             y = _y;
             age = 0;
             size = new Size(10, 10);
+            rect = new Rectangle(x, y, size.Width, size.Height);
+            cap = _fartLevel;
+        }
+
+        public GasCloud()
+        {
+
         }
 
         public void Grow()
         {
-
+            rect.Width = size.Width;
+            rect.Height = size.Height;
+            size.Width+= 2;
+            x--;
+            size.Height+= 2;
+            y--;
+            age++;
         }
     }
 }

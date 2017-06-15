@@ -50,9 +50,9 @@ namespace LethalGas
             }
         }
 
-        public bool Collide(int x)
+        public bool Collide(Rectangle rect)
         {
-            if (Math.Abs(position.X - x) <= 75)
+            if (rect.IntersectsWith(pic))
             {
                 return true;
             }
