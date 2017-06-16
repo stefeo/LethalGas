@@ -36,11 +36,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Outline Pixel7", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(441, 580);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 41);
+            this.label1.Size = new System.Drawing.Size(164, 61);
             this.label1.TabIndex = 1;
             this.label1.Text = "FART";
             // 
@@ -48,11 +48,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Outline Pixel7 Solid", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FloralWhite;
             this.label2.Location = new System.Drawing.Point(101, 193);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(514, 21);
+            this.label2.Size = new System.Drawing.Size(323, 31);
             this.label2.TabIndex = 2;
             this.label2.Text = "Kill people with your farts.";
             // 
@@ -66,6 +66,7 @@
             this.Controls.Add(this.label1);
             this.Name = "InstructionScreen";
             this.Size = new System.Drawing.Size(1020, 650);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InstructionScreen_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.InstructionScreen_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

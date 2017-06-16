@@ -12,6 +12,8 @@ namespace LethalGas
 {
     public partial class InstructionScreen : UserControl
     {
+        public bool nextEnabled = false;
+
         public InstructionScreen()
         {
             InitializeComponent();
@@ -20,9 +22,12 @@ namespace LethalGas
         private void InstructionScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
+            { nextEnabled = true; }
+
+                if (e.KeyCode == Keys.Escape)
             {
                 // Create an instance of the SecondScreen
-                mainGame cs = new mainGame();
+                HighScoreScreen cs = new HighScoreScreen();
                 cs.Location = new Point(this.Left, this.Top);
                 // Add the User Control to the Form
                 Form f = this.FindForm();
@@ -30,11 +35,15 @@ namespace LethalGas
                 f.Controls.Add(cs);
                 cs.Focus();
             }
+        }
 
-            if (e.KeyCode == Keys.Escape)
+        private void InstructionScreen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space && nextEnabled)
             {
+                Form1.titleMusic.Stop();
                 // Create an instance of the SecondScreen
-                HighScoreScreen cs = new HighScoreScreen();
+                mainGame cs = new mainGame();
                 cs.Location = new Point(this.Left, this.Top);
                 // Add the User Control to the Form
                 Form f = this.FindForm();

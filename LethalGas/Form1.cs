@@ -20,6 +20,7 @@ namespace LethalGas
         }
 
         public static SoundPlayer mainGameMusic = new SoundPlayer(Properties.Resources.funky_beat);
+        public static SoundPlayer titleMusic = new SoundPlayer(Properties.Resources.BONGO);
         public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.fart);
         public static List<Highscore> highscoreList = new List<Highscore>();
         public static int currentScore;
@@ -27,6 +28,8 @@ namespace LethalGas
         {
             // Create an instance of the MainScreen
             MainScreen ms = new MainScreen();
+
+            titleMusic.Play();
 
             // Add the User Control to the Form
             this.Controls.Add(ms);
