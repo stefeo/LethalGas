@@ -45,6 +45,7 @@ namespace LethalGas
         int brightness, brightness2, day;
         bool right, left;
         int position;
+        double counter;
 
         public mainGame()
         {
@@ -111,7 +112,12 @@ namespace LethalGas
         private void mainGame_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             imgStill = 0;
-            if (e.KeyCode == Keys.Escape) { pause = true; timer1.Enabled = false; Refresh(); }
+            if (e.KeyCode == Keys.Escape)
+            {
+                pause = true;
+                if (brightness > 100) { backBrush.Color = Color.FromArgb(140, 0, 0, 0); backBrush2.Color = Color.FromArgb(120, 0, 0, 0); }
+                timer1.Enabled = false; Refresh();
+            }
 
             if (!pause)
             {
@@ -173,13 +179,14 @@ namespace LethalGas
         public void dayChange()
         {
             day++;
-            if (day < 230) { brightness++; }
-            else if (day >= 800 && day < 1029) { brightness--; }
-            else if (day == 1600) { day = 0; }
+            
+            if (day > 500 && day < 730) { brightness++; }
+            else if (day >= 1300 && day < 1529) { brightness--; }
+            else if (day == 2100) { day = 0; }
 
-            if (day > 60 && day <230) { brightness2++; }
-            else if (day >= 860 && day < 1029) { brightness2--; }
-            else if (day == 1600) { day = 0; }
+            if (day > 560 && day <730) { brightness2++; }
+            else if (day >= 1360 && day < 1329) { brightness2--; }
+            else if (day == 2100) { day = 0; }
 
             backBrush.Color = Color.FromArgb(brightness, 0, 0, 0);
             backBrush2.Color = Color.FromArgb(brightness2, 0, 0, 0);
@@ -188,17 +195,17 @@ namespace LethalGas
 
         public void fartMeter()
         {
-            //fart Meter
-            blockBrush.Color = Color.FromArgb(200 - fartTimer / 4, 50, 128, 40);
-            blockBrush2.Color = Color.FromArgb(200 - fartTimer / 3, 0, 100, 0);
-            blockBrush3.Color = Color.FromArgb(fartTimer / 2, 165, 42, 42);
+                //fart Meter
+                blockBrush.Color = Color.FromArgb(200 - fartTimer / 4, 50, 128, 40);
+                blockBrush2.Color = Color.FromArgb(200 - fartTimer / 3, 0, 100, 0);
+                blockBrush3.Color = Color.FromArgb(fartTimer / 2, 165, 42, 42);
 
-            if (fart && fartTimer > 0)
-            {
-                fartTimer--;
-                fartLevel++;
-            }
-            else if (fartTimer < 260) { fartTimer++; }
+                if (fart && fartTimer > 0)
+                {
+                    fartTimer-= 2;
+                    fartLevel+= 2;
+                }
+                else if (fartTimer < 260) { fartTimer++; }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
