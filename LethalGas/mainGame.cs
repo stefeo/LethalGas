@@ -39,6 +39,8 @@ namespace LethalGas
 
         int score;
         int pedSpawnTimer;
+        int speed;
+        int speedBoostTimer;
         int img, imgStill;
         int fartTimer, fartLevel;
         bool still, fart, pause;
@@ -132,6 +134,8 @@ namespace LethalGas
                 if(e.KeyCode == Keys.M)
                 {
                     // Create an instance of the SecondScreen
+                    Form1.mainGameMusic.Stop();
+                    Form1.titleMusic.Play();
                     MainScreen cs = new MainScreen();
                     cs.Location = new Point(this.Left, this.Top);
                     // Add the User Control to the Form
@@ -173,6 +177,7 @@ namespace LethalGas
             {
                 fart = false;
                 fartLevel = 0;
+                speedBoostTimer = 20;
             }
         }
 
@@ -210,8 +215,11 @@ namespace LethalGas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            dayChange();
+            fartMeter();
+
             #region fartlLevel
-            if(Keyboard.IsKeyDown(Key.Space))
+            if (Keyboard.IsKeyDown(Key.Space))
             {
                 if (fartLevel > 3)
                 {
@@ -244,9 +252,6 @@ namespace LethalGas
             }
             #endregion
 
-            dayChange();
-            fartMeter();
-
             #region Farts
 
             GrowFarts();
@@ -269,6 +274,18 @@ namespace LethalGas
                     if (p.FartCheck(f.rect, playerRect))
                     {
                         //lose
+                        // Create an instance of the SecondScreen
+                        Form1.mainGameMusic.Stop();
+                        Form1.titleMusic.Play();
+                        loseScreen cs = new loseScreen();
+                        cs.Location = new Point(this.Left, this.Top);
+                        // Add the User Control to the Form
+                        Form form = this.FindForm();
+                        form.Controls.Remove(this);
+                        form.Controls.Add(cs);
+                        cs.Focus();
+                        timer1.Enabled = false;
+                        return;
                     }
                 }
             }
@@ -277,10 +294,20 @@ namespace LethalGas
 
             playerRect.X = position;
 
+            if (speedBoostTimer > 0)
+            {
+                speed = 10;
+                speedBoostTimer--;
+            }
+            else
+            {
+                speed = 5;
+            }
+
             if (right && position < this.Width - 119)
             {
                 left = false;
-                position += 5;
+                position += speed;
                 still = false;
                 imageChange();
             }
@@ -288,7 +315,7 @@ namespace LethalGas
             {
                 right = false;
                 still = false;
-                position -= 5;
+                position -= speed;
                 imageChange();
             }
             else
@@ -442,7 +469,7 @@ namespace LethalGas
 
         public void SpawnNPC()
         {
-            if (randNum.Next(0, 180) == 1)
+            if (randNum.Next(0, 120) == 1)
             {//charcter randomness
                 if (randNum.Next(1, 3) == 1)
                 {//side random
