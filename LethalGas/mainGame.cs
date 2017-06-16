@@ -178,7 +178,19 @@ namespace LethalGas
                 fart = false;
                 fartLevel = 0;
                 speedBoostTimer = 20;
+
+                if (Keyboard.IsKeyDown(Key.Right))
+                {
+                    right = true;
+                }
+
+                if (Keyboard.IsKeyDown(Key.Left))
+                {
+                    left = true;
+                }
             }
+
+
         }
 
         public void dayChange()
@@ -205,12 +217,28 @@ namespace LethalGas
                 blockBrush2.Color = Color.FromArgb(200 - fartTimer / 3, 0, 100, 0);
                 blockBrush3.Color = Color.FromArgb(fartTimer / 2, 165, 42, 42);
 
-                if (fart && fartTimer > 0)
-                {
-                    fartTimer-= 2;
-                    fartLevel+= 2;
-                }
-                else if (fartTimer < 260) { fartTimer++; }
+            if (fart && fartTimer > 0)
+            {
+                fartTimer -= 2;
+                fartLevel += 2;
+            }
+            else if (fartTimer < 260) { fartTimer++; }
+            else if (fartTimer >= 260)
+            {
+                //lose
+                // Create an instance of the SecondScreen
+                Form1.mainGameMusic.Stop();
+                Form1.titleMusic.Play();
+                loseScreen cs = new loseScreen();
+                cs.Location = new Point(this.Left, this.Top);
+                // Add the User Control to the Form
+                Form form = this.FindForm();
+                form.Controls.Remove(this);
+                form.Controls.Add(cs);
+                cs.Focus();
+                timer1.Enabled = false;
+                return;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -391,8 +419,7 @@ namespace LethalGas
             
             foreach (GasCloud f in farts)
             {
-                Rectangle r = new Rectangle(f.x, f.y, f.size.Width, f.size.Height);
-                e.Graphics.DrawImage(Properties.Resources.fart2, r);
+                e.Graphics.DrawImage(Properties.Resources.fart2, f.rect);
             }
 
             #endregion
