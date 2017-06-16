@@ -215,6 +215,10 @@ namespace LethalGas
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            counter++;
+            timeLabel.Text = "Time:" + (counter/28).ToString("000");
+            scoreLabel.Text = "Score:" + (score).ToString("0000");
+
             dayChange();
             fartMeter();
 
