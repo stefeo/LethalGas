@@ -37,7 +37,6 @@ namespace LethalGas
         SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(180, 0, 0, 0));
         SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
-        int score;
         int pedSpawnTimer;
         int speed;
         int speedBoostTimer;
@@ -245,7 +244,7 @@ namespace LethalGas
         {
             counter++;
             timeLabel.Text = "Time:" + (counter/28).ToString("000");
-            scoreLabel.Text = "Score:" + (score).ToString("0000");
+            scoreLabel.Text = "Score:" + (Form1.score).ToString("0000");
 
             dayChange();
             fartMeter();
@@ -302,7 +301,7 @@ namespace LethalGas
 
                 foreach(GasCloud f in farts)
                 {
-                    if (p.Collide(f.rect)) { score++; }
+                    if (p.Collide(f.rect)) { Form1.score++; }
                     if (p.FartCheck(f.rect, playerRect))
                     {
                         //lose

@@ -24,6 +24,8 @@ namespace LethalGas
         public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.fart);
         public static List<Highscore> highscoreList = new List<Highscore>();
         public static int currentScore;
+        public static int score;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // Create an instance of the MainScreen
