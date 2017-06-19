@@ -248,7 +248,7 @@ namespace LethalGas
 
             dayChange();
             fartMeter();
-
+             
             #region fartlLevel
             if (Keyboard.IsKeyDown(Key.Space))
             {
