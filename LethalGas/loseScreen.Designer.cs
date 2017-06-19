@@ -38,9 +38,9 @@
             // scoreOutput
             // 
             this.scoreOutput.BackColor = System.Drawing.Color.Transparent;
-            this.scoreOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreOutput.Font = new System.Drawing.Font("Outline Pixel7 Solid", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreOutput.ForeColor = System.Drawing.Color.White;
-            this.scoreOutput.Location = new System.Drawing.Point(113, 130);
+            this.scoreOutput.Location = new System.Drawing.Point(125, 127);
             this.scoreOutput.Name = "scoreOutput";
             this.scoreOutput.Size = new System.Drawing.Size(794, 40);
             this.scoreOutput.TabIndex = 14;

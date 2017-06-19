@@ -19,7 +19,7 @@ namespace LethalGas
 
         private void loseScreen_Load(object sender, EventArgs e)
         {
-            scoreOutput.Text = "You scored " + " points!";
+            scoreOutput.Text = "You scored " + Form1.score.ToString("0000")+ " points!";
         }
 
         int index1, index2, index3, selected, lastSelected;
