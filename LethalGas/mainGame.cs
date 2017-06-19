@@ -58,7 +58,7 @@ namespace LethalGas
         {
             //Pedestrian ped1 = new Pedestrian(this.Width, -1, 3, "dink", charactersL, pic1);
             //peds.Add(ped1);
-            Form1.mainGameMusic.Play();
+            Form1.mainGameMusic.PlayLooping();
 
             characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
@@ -134,7 +134,7 @@ namespace LethalGas
                 {
                     // Create an instance of the SecondScreen
                     Form1.mainGameMusic.Stop();
-                    Form1.titleMusic.Play();
+                    Form1.titleMusic.PlayLooping();
                     MainScreen cs = new MainScreen();
                     cs.Location = new Point(this.Left, this.Top);
                     // Add the User Control to the Form
@@ -307,7 +307,7 @@ namespace LethalGas
                         //lose
                         // Create an instance of the SecondScreen
                         Form1.mainGameMusic.Stop();
-                        Form1.titleMusic.Play();
+                        Form1.titleMusic.PlayLooping();
                         loseScreen cs = new loseScreen();
                         cs.Location = new Point(this.Left, this.Top);
                         // Add the User Control to the Form
