@@ -38,7 +38,7 @@
             // scoreOutput
             // 
             this.scoreOutput.BackColor = System.Drawing.Color.Transparent;
-            this.scoreOutput.Font = new System.Drawing.Font("Outline Pixel7 Solid", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreOutput.Font = new System.Drawing.Font("Outline Pixel7 Solid", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreOutput.ForeColor = System.Drawing.Color.White;
             this.scoreOutput.Location = new System.Drawing.Point(125, 127);
             this.scoreOutput.Name = "scoreOutput";

@@ -25,7 +25,7 @@ namespace LethalGas
 
             for (int i = 0; i < Convert.ToInt16(Form1.highscoreList.Count); i++)
             {
-                if (Form1.currentScore > Convert.ToInt16(Form1.highscoreList[i].score))
+                if (Form1.score > Convert.ToInt16(Form1.highscoreList[i].score))
                 {
                     Form1.highscoreList.Insert(i, hs);
 
