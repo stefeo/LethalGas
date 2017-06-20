@@ -16,6 +16,7 @@ namespace LethalGas
         Point[] triangle = new Point[6];
         Point[] triangle1 = new Point[4];
 
+        #region Image Lists
         List<Image> characters = new List<Image>();
         List<Image> charactersL = new List<Image>();
 
@@ -23,13 +24,17 @@ namespace LethalGas
         List<Image> pedImages2 = new List<Image>();
         List<Image> pedImagesL = new List<Image>();
         List<Image> pedImages2L = new List<Image>();
+        #endregion
 
         List<Pedestrian> peds = new List<Pedestrian>();
         List<GasCloud> farts = new List<GasCloud>();
+
         Random randNum = new Random();
         Rectangle pic1 = new Rectangle(0, 0, 10, 10);
         Rectangle playerRect = new Rectangle();
+        Rectangle playerHitbox = new Rectangle();
 
+        #region Brushes
         SolidBrush blockBrush = new SolidBrush(Color.Green);
         SolidBrush blockBrush2 = new SolidBrush(Color.Green);
         SolidBrush blockBrush3 = new SolidBrush(Color.Green);
@@ -37,16 +42,19 @@ namespace LethalGas
         SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(180, 0, 0, 0));
         SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
-        int pedSpawnTimer;
+        SolidBrush testBrush = new SolidBrush(Color.Red);
+        #endregion
+
+        int pedSpawnFactor;
         int speed;
         int speedBoostTimer;
         int img, imgStill;
         int fartTimer, fartLevel;
-        bool still, fart, pause;
         int brightness, brightness2, day;
-        bool right, left;
         int position;
         double counter;
+        bool still, fart, pause;
+        bool right, left;
 
         public mainGame()
         {
@@ -59,6 +67,7 @@ namespace LethalGas
             Form1.score = 0;
             Form1.mainGameMusic.PlayLooping();
 
+            #region Images
             characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
             characters.Add(Properties.Resources.dylonWalk2R);
@@ -88,10 +97,15 @@ namespace LethalGas
             pedImages2L.Add(Properties.Resources.bluePedoWalk1);
             pedImages2L.Add(Properties.Resources.bluePedoWalk2);
             pedImages2L.Add(Properties.Resources.bluePedoStill);
+            #endregion
 
             lightPoints();
 
             playerRect = new Rectangle(position, this.Height - 329, 150, 300);
+            playerHitbox = new Rectangle(position + 36, this.Height - 329, 75, 300);
+
+            Form1.score = 0;
+            counter = 0;
         }
          
         public void lightPoints()
@@ -290,9 +304,11 @@ namespace LethalGas
 
             #region Pedestrians
 
-            pedSpawnTimer++;
+            double scoreFactor = Form1.score / 20;
+            pedSpawnFactor = Convert.ToInt16(Math.Round(scoreFactor));
 
             SpawnNPC();
+            DespawnNPC();
 
             foreach(Pedestrian p in peds)
             {
@@ -301,7 +317,7 @@ namespace LethalGas
                 foreach(GasCloud f in farts)
                 {
                     if (p.Collide(f.rect)) { Form1.score++; }
-                    if (p.FartCheck(f.rect, playerRect))
+                    if (p.FartCheck(f.rect, playerHitbox))
                     {
                         //lose
                         // Create an instance of the SecondScreen
@@ -323,6 +339,7 @@ namespace LethalGas
             #endregion
 
             playerRect.X = position;
+            playerHitbox.X = position + 36;
 
             if (speedBoostTimer > 0)
             {
@@ -361,21 +378,14 @@ namespace LethalGas
             Refresh();
         }
 
-        public void imageChange()
-        {
-            img++;
-            if (img == 40)
-            {
-                img = 0;
-            }
-        }
-
         private void mainGame_Paint(object sender, PaintEventArgs e)
         {
             #region ped images
 
             foreach(Pedestrian p in peds)
             {
+                //e.Graphics.FillRectangle(testBrush, p.hitbox);
+
                 if (p.direction == 1)
                 {
                     if (p.imgDex < 10)
@@ -422,10 +432,13 @@ namespace LethalGas
             
             foreach (GasCloud f in farts)
             {
+                //e.Graphics.FillRectangle(testBrush, f.rect);
                 e.Graphics.DrawImage(Properties.Resources.fart2, f.rect);
             }
 
             #endregion
+
+            //e.Graphics.FillRectangle(testBrush, playerHitbox);
 
             if (!still && right)
             {
@@ -497,9 +510,18 @@ namespace LethalGas
             e.Graphics.FillRectangle(blockBrush3, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
         }
 
+        public void imageChange()
+        {
+            img++;
+            if (img == 40)
+            {
+                img = 0;
+            }
+        }
+
         public void SpawnNPC()
         {
-            if (randNum.Next(0, 120) == 1)
+            if (randNum.Next(0, 120 - pedSpawnFactor) == 1)
             {//charcter randomness
                 if (randNum.Next(1, 3) == 1)
                 {//side random
@@ -585,6 +607,30 @@ namespace LethalGas
             foreach(int i in fartsToRemove)
             {
                 farts.RemoveAt(i);
+            }
+        }
+
+        public void DespawnNPC()
+        {
+            List<int> nPCToRemove = new List<int>();
+
+            foreach (Pedestrian p in peds)
+            {
+                if (p.position.X >= this.Width + 10)
+                {
+                    nPCToRemove.Add(peds.IndexOf(p));
+                }
+                else if (p.position.X <= -150)
+                {
+                    nPCToRemove.Add(peds.IndexOf(p));
+                }
+            }
+
+            nPCToRemove.Reverse();
+
+            foreach (int i in nPCToRemove)
+            {
+                peds.RemoveAt(i);
             }
         }
     }

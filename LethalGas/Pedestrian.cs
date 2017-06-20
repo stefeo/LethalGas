@@ -14,7 +14,7 @@ namespace LethalGas
         public int direction;
         public int speed;
         public string type;
-        public Rectangle pic;
+        public Rectangle pic, hitbox;
         public List<Image> Images;
         public int imgDex;
 
@@ -31,6 +31,7 @@ namespace LethalGas
             pic.Height = 300;
             pic.Location = position;
             imgDex = 0;
+            hitbox = new Rectangle(position.X + 36, position.Y, 75, 300);
         }
 
         public bool FartCheck(Rectangle fart, Rectangle player)
@@ -49,6 +50,7 @@ namespace LethalGas
         {
             position.X += direction * speed;
             pic.Location = position;
+            hitbox.X = position.X + 36;
 
             imgDex++;
             if (imgDex == 40)
@@ -59,7 +61,7 @@ namespace LethalGas
 
         public bool Collide(Rectangle rect)
         {
-            if (rect.IntersectsWith(pic))
+            if (rect.IntersectsWith(hitbox))
             {
                 return true;
             }
