@@ -291,6 +291,15 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream fartAway {
+            get {
+                return ResourceManager.GetStream("fartAway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream funky_beat {
             get {
                 return ResourceManager.GetStream("funky_beat", resourceCulture);
@@ -333,6 +342,16 @@ namespace LethalGas.Properties {
         internal static System.Drawing.Bitmap mainGameBackColored__1_ {
             get {
                 object obj = ResourceManager.GetObject("mainGameBackColored__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap newLethalGasCover {
+            get {
+                object obj = ResourceManager.GetObject("newLethalGasCover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

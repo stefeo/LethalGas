@@ -21,13 +21,17 @@ namespace LethalGas
 
         public static SoundPlayer mainGameMusic = new SoundPlayer(Properties.Resources.funky_beat);
         public static SoundPlayer titleMusic = new SoundPlayer(Properties.Resources.BONGO);
-        public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.fart);
+        public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.fartAway);
         public static List<Highscore> highscoreList = new List<Highscore>();
+
         public static int currentScore;
         public static int score;
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var titleSong = new System.Windows.Media.MediaPlayer();
+            titleSong.Open(new Uri(Application.StartupPath + "/Resources/blip.wav"));
+
             // Create an instance of the MainScreen
             MainScreen ms = new MainScreen();
 
