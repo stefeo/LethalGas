@@ -307,7 +307,6 @@ namespace LethalGas
 
             double scoreFactor = Form1.score / 20;
             pedSpawnFactor = Convert.ToInt16(Math.Round(scoreFactor));
-            scoreLabel.Text = pedSpawnFactor + "";
 
             SpawnNPC();
             DespawnNPC();

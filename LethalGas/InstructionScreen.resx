@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>You are dangerously flatulent from that taco 
+fiesta last night, and you must relieve your 
+gas secretly. Make sure nobody notices you
+farting, although you will earn points when 
+others smell your farts. Don't let your fart 
+meter reach the max, or you will recieve a
+stinky taco surprise.</value>
+  </data>
 </root>

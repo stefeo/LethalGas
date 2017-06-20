@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstructionScreen));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -52,9 +53,9 @@
             this.label2.ForeColor = System.Drawing.Color.FloralWhite;
             this.label2.Location = new System.Drawing.Point(101, 193);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(514, 21);
+            this.label2.Size = new System.Drawing.Size(820, 147);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Kill people with your farts.";
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // InstructionScreen
             // 
