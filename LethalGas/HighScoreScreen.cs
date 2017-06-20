@@ -49,13 +49,13 @@ namespace LethalGas
             //outputs highscores in format: (Position). NAME level# score 
             for (int i = 0; i < Form1.highscoreList.Count; i++)
             {
-                if ((i + 1) >= 10)
+                if ((i + 1) >= 7)
                 {
-                    top10Output.Text += (i + 1) + ".  " + Form1.highscoreList[i].name + "   level " + Form1.highscoreList[i].level + "   " + Form1.highscoreList[i].score + "\n \n";
+                    top10Output.Text += (i + 1) + ". " + Form1.highscoreList[i].name + "           " + Form1.highscoreList[i].score + "\n----------------------\n";
                 }
                 else
                 {
-                    top10Output.Text += (i + 1) + ".   " + Form1.highscoreList[i].name + "   level " + Form1.highscoreList[i].level + "   " + Form1.highscoreList[i].score + "\n \n";
+                    top10Output.Text += (i + 1) + ". " + Form1.highscoreList[i].name + "           " + Form1.highscoreList[i].score + "\n----------------------\n";
                 }
             }
         }

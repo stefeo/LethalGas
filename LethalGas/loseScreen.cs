@@ -165,15 +165,10 @@ namespace LethalGas
 
                     if (spaceDown == true)
                     {
-
-
-                        Highscore hs = new Highscore(nameText1.Text + nameText2.Text + nameText3.Text,Convert.ToString(0), Convert.ToString(Form1.currentScore));
+                        Highscore hs = new Highscore(nameText1.Text + nameText2.Text + nameText3.Text,Convert.ToString(0), Form1.score.ToString("0000"));
                         hs.save(hs);
                         hs.saveScores(Form1.highscoreList);
-                        
-
                         // Goes to the game screen
-
                         Form form = this.FindForm();
                         MainScreen ms = new MainScreen();
                         ms.Location = new Point(this.Left, this.Top);
@@ -183,26 +178,9 @@ namespace LethalGas
                     break;
 
                 case 4:
-                    //playButton.ForeColor = Color.Red;
-
+                  
                     if (spaceDown == true)
                     {
-
-                        /* Highscore hs = new Highscore(nameText1.Text + nameText2.Text + nameText3.Text, Convert.ToString(GameScreen.currentLevel), Convert.ToString(Form1.currentScore));
-
-                         hs.save(hs);
-                         hs.saveScores(Form1.highscoreList);
-
-                         // Goes to the main menu screen
-
-                         Form form = this.FindForm();
-                         Screens.GameScreen gs = new Screens.GameScreen();
-
-                         gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
-
-                         form.Controls.Add(gs);
-                         form.Controls.Remove(this);
-                         */
                     }
                     break;
             }

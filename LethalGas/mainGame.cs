@@ -64,8 +64,7 @@ namespace LethalGas
 
         private void mainGame_Load(object sender, EventArgs e)
         {
-            //Pedestrian ped1 = new Pedestrian(this.Width, -1, 3, "dink", charactersL, pic1);
-            //peds.Add(ped1);
+            Form1.score = 0;
             Form1.mainGameMusic.PlayLooping();
 
             #region Images
@@ -138,7 +137,7 @@ namespace LethalGas
             {
                 if (e.KeyCode == Keys.Right && !fart ) { right = true; }
                 if (e.KeyCode == Keys.Left && !fart ) { left = true; }
-                if (e.KeyCode == Keys.Space) { right = false; left = false; fart = true; }
+                if (e.KeyCode == Keys.Space) { right = false; left = false; fart = true; Form1.fartSound.Play(); }
             }
             
             else
@@ -262,7 +261,7 @@ namespace LethalGas
 
             dayChange();
             fartMeter();
-
+             
             #region fartlLevel
             if (Keyboard.IsKeyDown(Key.Space))
             {
@@ -375,6 +374,7 @@ namespace LethalGas
                     imgStill = 0;
                 }
             }
+
             Refresh();
         }
 
