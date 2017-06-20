@@ -47,15 +47,15 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Outline Pixel7 Solid", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Outline Pixel7 Solid", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FloralWhite;
-            this.label2.Location = new System.Drawing.Point(101, 193);
+            this.label2.Location = new System.Drawing.Point(99, 189);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(820, 147);
+            this.label2.Size = new System.Drawing.Size(831, 147);
             this.label2.TabIndex = 2;
             this.label2.Text = resources.GetString("label2.Text");
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InstructionScreen
             // 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Xml;
+using System.IO;
 
 namespace LethalGas
 {
@@ -19,9 +20,9 @@ namespace LethalGas
             InitializeComponent();
         }
 
-        public static SoundPlayer mainGameMusic = new SoundPlayer(Properties.Resources.funky_beat);
-        public static SoundPlayer titleMusic = new SoundPlayer(Properties.Resources.BONGO);
-        public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.fartAway);
+        public static System.Windows.Media.MediaPlayer mainGameMusic = new System.Windows.Media.MediaPlayer();
+        public static System.Windows.Media.MediaPlayer titleMusic = new System.Windows.Media.MediaPlayer();
+        public static SoundPlayer fartSound = new SoundPlayer(Properties.Resources.Long_Fart_Sound_Effect_NEW);
         public static List<Highscore> highscoreList = new List<Highscore>();
 
         public static int currentScore;
@@ -29,13 +30,13 @@ namespace LethalGas
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var titleSong = new System.Windows.Media.MediaPlayer();
-            titleSong.Open(new Uri(Application.StartupPath + "/Resources/blip.wav"));
+            titleMusic.Open(new Uri(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "BONGO.mp3")));
+            mainGameMusic.Open(new Uri(Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "funky beat.mp3")));
 
             // Create an instance of the MainScreen
             MainScreen ms = new MainScreen();
 
-            titleMusic.PlayLooping();
+            titleMusic.Play();
 
             // Add the User Control to the Form
             this.Controls.Add(ms);

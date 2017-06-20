@@ -65,7 +65,8 @@ namespace LethalGas
         private void mainGame_Load(object sender, EventArgs e)
         {
             Form1.score = 0;
-            Form1.mainGameMusic.PlayLooping();
+            //Form1.mainGameMusic.
+            Form1.mainGameMusic.Play();
 
             #region Images
             characters.Add(Properties.Resources.dylonStillRN);
@@ -147,7 +148,7 @@ namespace LethalGas
                 {
                     // Create an instance of the SecondScreen
                     Form1.mainGameMusic.Stop();
-                    Form1.titleMusic.PlayLooping();
+                    Form1.titleMusic.Play();
                     MainScreen cs = new MainScreen();
                     cs.Location = new Point(this.Left, this.Top);
                     // Add the User Control to the Form
@@ -190,6 +191,8 @@ namespace LethalGas
                 fart = false;
                 fartLevel = 0;
                 speedBoostTimer = 20;
+
+                Form1.fartSound.Stop();
 
                 if (Keyboard.IsKeyDown(Key.Right))
                 {
@@ -322,7 +325,7 @@ namespace LethalGas
                         //lose
                         // Create an instance of the SecondScreen
                         Form1.mainGameMusic.Stop();
-                        Form1.titleMusic.PlayLooping();
+                        Form1.titleMusic.Play();
                         loseScreen cs = new loseScreen();
                         cs.Location = new Point(this.Left, this.Top);
                         // Add the User Control to the Form
