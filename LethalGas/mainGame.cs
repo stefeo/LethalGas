@@ -33,6 +33,7 @@ namespace LethalGas
         Rectangle pic1 = new Rectangle(0, 0, 10, 10);
         Rectangle playerRect = new Rectangle();
         Rectangle playerHitbox = new Rectangle();
+        Rectangle screenRect = new Rectangle();
 
         #region Brushes
         SolidBrush blockBrush = new SolidBrush(Color.Green);
@@ -43,6 +44,8 @@ namespace LethalGas
         SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
         SolidBrush testBrush = new SolidBrush(Color.Red);
+
+        SolidBrush gameOverBrush = new SolidBrush(Color.FromArgb(0, 0, 0, 0));
         #endregion
 
         int pedSpawnFactor;
@@ -104,6 +107,7 @@ namespace LethalGas
 
             playerRect = new Rectangle(position, this.Height - 329, 150, 300);
             playerHitbox = new Rectangle(position + 36, this.Height - 329, 75, 300);
+            screenRect = new Rectangle(0, 0, this.Width, this.Height);
 
             Form1.score = 0;
             counter = 0;
@@ -242,17 +246,7 @@ namespace LethalGas
             {
                 //lose
                 // Create an instance of the SecondScreen
-                Form1.mainGameMusic.Stop();
-                Form1.titleMusic.Play();
-                loseScreen cs = new loseScreen();
-                cs.Location = new Point(this.Left, this.Top);
-                // Add the User Control to the Form
-                Form form = this.FindForm();
-                form.Controls.Remove(this);
-                form.Controls.Add(cs);
-                cs.Focus();
-                timer1.Enabled = false;
-                return;
+                GameOver("poop");
             }
         }
 
@@ -324,17 +318,7 @@ namespace LethalGas
                     {
                         //lose
                         // Create an instance of the SecondScreen
-                        Form1.mainGameMusic.Stop();
-                        Form1.titleMusic.Play();
-                        loseScreen cs = new loseScreen();
-                        cs.Location = new Point(this.Left, this.Top);
-                        // Add the User Control to the Form
-                        Form form = this.FindForm();
-                        form.Controls.Remove(this);
-                        form.Controls.Add(cs);
-                        cs.Focus();
-                        timer1.Enabled = false;
-                        return;
+                        GameOver("caught");
                     }
                 }
             }
@@ -635,6 +619,33 @@ namespace LethalGas
             {
                 peds.RemoveAt(i);
             }
+        }
+
+        public void GameOver(string type)
+        {
+            scoreLabel.Enabled = false;
+            timeLabel.Enabled = false;
+            Refresh();
+
+            Graphics graph = this.CreateGraphics();
+            timer1.Enabled = false;
+            for (int i = 0; i < 254; i++)
+            {
+                graph.FillRectangle(gameOverBrush, screenRect);
+                gameOverBrush.Color = Color.FromArgb(i, 139, 69, 19);
+            }
+
+
+            Form1.mainGameMusic.Stop();
+            Form1.titleMusic.Play();
+            loseScreen cs = new loseScreen();
+            cs.Location = new Point(this.Left, this.Top);
+            // Add the User Control to the Form
+            Form form = this.FindForm();
+            form.Controls.Remove(this);
+            form.Controls.Add(cs);
+            cs.Focus();
+            return;
         }
     }
 }
