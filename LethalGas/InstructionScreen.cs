@@ -17,23 +17,34 @@ namespace LethalGas
         public InstructionScreen()
         {
             InitializeComponent();
+            index = 0;
+            pictureBox1.Image = null;
         }
 
+        int index;
         private void InstructionScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
-            { nextEnabled = true; }
-
-                if (e.KeyCode == Keys.Escape)
             {
-                // Create an instance of the SecondScreen
-                HighScoreScreen cs = new HighScoreScreen();
-                cs.Location = new Point(this.Left, this.Top);
-                // Add the User Control to the Form
-                Form f = this.FindForm();
-                f.Controls.Remove(this);
-                f.Controls.Add(cs);
-                cs.Focus();
+                if (index == 0) { pictureBox1.Image = Properties.Resources.InstructionsSTART; }
+                if (index == 1) { pictureBox1.Image = Properties.Resources.Instructions2; }
+                if (index == 2)
+                {
+                    nextEnabled = true;
+                }
+                index++;
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                    // Create an instance of the SecondScreen
+                    HighScoreScreen cs = new HighScoreScreen();
+                    cs.Location = new Point(this.Left, this.Top);
+                    // Add the User Control to the Form
+                    Form f = this.FindForm();
+                    f.Controls.Remove(this);
+                    f.Controls.Add(cs);
+                    cs.Focus();
             }
         }
 
