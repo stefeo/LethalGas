@@ -631,7 +631,7 @@ namespace LethalGas
             timer1.Enabled = false;
             if (type == "poop")
             {
-                graph.DrawImage()
+                //graph.DrawImage()
                 for (int i = 0; i < 100; i++)
                 {
                     graph.FillRectangle(gameOverBrush, screenRect);
