@@ -492,9 +492,10 @@ namespace LethalGas
 
              
             //FartMeter
-            e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 50, fartTimer*2, 30);
-            e.Graphics.FillRectangle(blockBrush2, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
-            e.Graphics.FillRectangle(blockBrush3, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
+            e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 52, fartTimer*2, 28);
+            e.Graphics.FillRectangle(blockBrush2, (this.Width / 2) - fartTimer, 52, fartTimer * 2, 28);
+            e.Graphics.FillRectangle(blockBrush3, (this.Width / 2) - fartTimer, 52, fartTimer * 2, 28);
+            e.Graphics.DrawImage(Properties.Resources.meterS, new Rectangle(this.Width / 2 - 266, 45, 532, 40));
         }
 
         public void imageChange()
