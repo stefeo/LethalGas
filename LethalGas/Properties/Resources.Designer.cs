@@ -358,6 +358,26 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Instructions2 {
+            get {
+                object obj = ResourceManager.GetObject("Instructions2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap InstructionsSTART {
+            get {
+                object obj = ResourceManager.GetObject("InstructionsSTART", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mainGameBack1 {
             get {
                 object obj = ResourceManager.GetObject("mainGameBack1", resourceCulture);
@@ -371,6 +391,16 @@ namespace LethalGas.Properties {
         internal static System.Drawing.Bitmap mainGameBackColored__1_ {
             get {
                 object obj = ResourceManager.GetObject("mainGameBackColored__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap meterS {
+            get {
+                object obj = ResourceManager.GetObject("meterS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
