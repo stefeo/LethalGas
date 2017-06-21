@@ -347,15 +347,6 @@ namespace LethalGas.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Long_Fart_Sound_Effect_NEW {
-            get {
-                return ResourceManager.GetStream("Long_Fart_Sound_Effect_NEW", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Instructions2 {
@@ -372,6 +363,15 @@ namespace LethalGas.Properties {
             get {
                 object obj = ResourceManager.GetObject("InstructionsSTART", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Long_Fart_Sound_Effect_NEW {
+            get {
+                return ResourceManager.GetStream("Long_Fart_Sound_Effect_NEW", resourceCulture);
             }
         }
         

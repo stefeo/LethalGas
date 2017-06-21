@@ -629,12 +629,20 @@ namespace LethalGas
 
             Graphics graph = this.CreateGraphics();
             timer1.Enabled = false;
-            for (int i = 0; i < 254; i++)
+            if (type == "poop")
             {
-                graph.FillRectangle(gameOverBrush, screenRect);
-                gameOverBrush.Color = Color.FromArgb(i, 139, 69, 19);
-            }
+                graph.DrawImage()
+                for (int i = 0; i < 100; i++)
+                {
+                    graph.FillRectangle(gameOverBrush, screenRect);
+                    gameOverBrush.Color = Color.FromArgb(i, 139, 69, 19);
+                }
 
+            }
+            else if(type == "embarassed")
+            {
+
+            }
 
             Form1.mainGameMusic.Stop();
             Form1.titleMusic.Play();
