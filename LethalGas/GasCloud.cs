@@ -12,7 +12,7 @@ namespace LethalGas
         public int x;
         public int y;
         public Size size;
-        public Rectangle rect;
+        public Rectangle rect, hitBox;
         public int age;
         public int cap;
 
@@ -23,6 +23,7 @@ namespace LethalGas
             age = 0;
             size = new Size(10, 10);
             rect = new Rectangle(x, y, size.Width, size.Height);
+            hitBox = new Rectangle(x + 6, y + 6, size.Width - 12, size.Height - 12);
             cap = _fartLevel + 30;
         }
 

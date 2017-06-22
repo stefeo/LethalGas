@@ -36,6 +36,7 @@ namespace LethalGas
             // Create an instance of the MainScreen
             MainScreen ms = new MainScreen();
 
+            titleMusic.Stop();
             titleMusic.Play();
 
             // Add the User Control to the Form

@@ -485,7 +485,7 @@ namespace LethalGas
             }
 
             //pause Screen appears
-            if(pause)
+            if (pause)
             {
                 e.Graphics.FillRectangle(backBrush1, 0, 0, 1020, 650);
                 e.Graphics.DrawImage(Properties.Resources.Pause1, new Rectangle(0,0,1020,650));

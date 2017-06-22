@@ -36,7 +36,7 @@ namespace LethalGas
 
         public bool FartCheck(Rectangle fart, Rectangle player)
         {
-            if (fart.IntersectsWith(player) && fart.IntersectsWith(pic))
+            if (fart.IntersectsWith(player) && fart.IntersectsWith(hitbox))
             {
                 return true;
             }
