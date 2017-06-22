@@ -43,7 +43,7 @@ namespace LethalGas
         SolidBrush backBrush1 = new SolidBrush(Color.FromArgb(180, 0, 0, 0));
         SolidBrush backBrush2 = new SolidBrush(Color.FromArgb(200, 0, 0, 0));
 
-        SolidBrush testBrush = new SolidBrush(Color.Red);
+        SolidBrush testBrush = new SolidBrush(Color.White);
 
         SolidBrush gameOverBrush = new SolidBrush(Color.FromArgb(0, 0, 0, 0));
         #endregion
@@ -58,6 +58,7 @@ namespace LethalGas
         double counter;
         bool still, fart, pause;
         bool right, left;
+        bool gameOver;
 
         public mainGame()
         {
@@ -70,6 +71,8 @@ namespace LethalGas
             Form1.score = 0;
             //Form1.mainGameMusic.
             Form1.mainGameMusic.Play();
+
+            gameOver = false;
 
             #region Images
             characters.Add(Properties.Resources.dylonStillRN);
@@ -318,7 +321,7 @@ namespace LethalGas
                     {
                         //lose
                         // Create an instance of the SecondScreen
-                        GameOver("caught");
+                        GameOver("embarassed");
                     }
                 }
             }
@@ -426,56 +429,58 @@ namespace LethalGas
             #endregion
 
             //e.Graphics.FillRectangle(testBrush, playerHitbox);
-
-            if (!still && right)
+            if (!gameOver)
             {
-                if (img < 10)
+                if (!still && right)
                 {
-                    e.Graphics.DrawImage(characters[0], playerRect);
+                    if (img < 10)
+                    {
+                        e.Graphics.DrawImage(characters[0], playerRect);
+                    }
+                    if (img < 20 && img >= 10)
+                    {
+                        e.Graphics.DrawImage(characters[1], playerRect);
+                    }
+                    if (img >= 20 && img < 30)
+                    {
+                        e.Graphics.DrawImage(characters[0], playerRect);
+                    }
+                    if (img >= 30 && img <= 40)
+                    {
+                        e.Graphics.DrawImage(characters[2], playerRect);
+                    }
                 }
-                if (img < 20 && img >= 10)
+                else if (!still && left)
                 {
-                    e.Graphics.DrawImage(characters[1], playerRect);
+                    if (img < 10)
+                    {
+                        e.Graphics.DrawImage(charactersL[0], playerRect);
+                    }
+                    if (img < 20 && img >= 10)
+                    {
+                        e.Graphics.DrawImage(charactersL[1], playerRect);
+                    }
+                    if (img >= 20 && img < 30)
+                    {
+                        e.Graphics.DrawImage(charactersL[0], playerRect);
+                    }
+                    if (img >= 30 && img <= 40)
+                    {
+                        e.Graphics.DrawImage(charactersL[2], playerRect);
+                    }
                 }
-                if (img >= 20 && img < 30)
+                else if (fart) { e.Graphics.DrawImage(characters[5], playerRect); }
+                //if player is not moving
+                else
                 {
-                    e.Graphics.DrawImage(characters[0], playerRect);
-                }
-                if (img >= 30 && img <= 40)
-                {
-                    e.Graphics.DrawImage(characters[2], playerRect);
-                }
-            }
-            else if (!still && left)
-            {
-                if (img < 10)
-                {
-                    e.Graphics.DrawImage(charactersL[0], playerRect);
-                }
-                if (img < 20 && img >= 10)
-                {
-                    e.Graphics.DrawImage(charactersL[1], playerRect);
-                }
-                if (img >= 20 && img < 30)
-                {
-                    e.Graphics.DrawImage(charactersL[0], playerRect);
-                }
-                if (img >= 30 && img <= 40)
-                {
-                    e.Graphics.DrawImage(charactersL[2], playerRect);
-                }
-            }
-            else if (fart) { e.Graphics.DrawImage(characters[5], playerRect); }
-          //if player is not moving
-            else
-            {
-                if (imgStill < 30)
-                {
-                    e.Graphics.DrawImage(characters[3], playerRect);
-                }
-                if (imgStill <= 60 && imgStill >= 30)
-                {
-                    e.Graphics.DrawImage(characters[4], playerRect);
+                    if (imgStill < 30)
+                    {
+                        e.Graphics.DrawImage(characters[3], playerRect);
+                    }
+                    if (imgStill <= 60 && imgStill >= 30)
+                    {
+                        e.Graphics.DrawImage(characters[4], playerRect);
+                    }
                 }
             }
 
@@ -492,9 +497,10 @@ namespace LethalGas
 
              
             //FartMeter
-            e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 50, fartTimer*2, 30);
-            e.Graphics.FillRectangle(blockBrush2, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
-            e.Graphics.FillRectangle(blockBrush3, (this.Width / 2) - fartTimer, 50, fartTimer * 2, 30);
+            e.Graphics.FillRectangle(blockBrush, (this.Width / 2) - fartTimer, 52, fartTimer*2, 28);
+            e.Graphics.FillRectangle(blockBrush2, (this.Width / 2) - fartTimer, 52, fartTimer * 2, 28);
+            e.Graphics.FillRectangle(blockBrush3, (this.Width / 2) - fartTimer, 52, fartTimer * 2, 28);
+            e.Graphics.DrawImage(Properties.Resources.meterS, new Rectangle(this.Width / 2 - 266, 45, 532, 40));
         }
 
         public void imageChange()
@@ -623,26 +629,48 @@ namespace LethalGas
 
         public void GameOver(string type)
         {
-            scoreLabel.Enabled = false;
-            timeLabel.Enabled = false;
+            scoreLabel.Visible = false;
+            timeLabel.Visible = false;
+
+            gameOver = true;
             Refresh();
 
+            Label l = new Label();
             Graphics graph = this.CreateGraphics();
             timer1.Enabled = false;
             if (type == "poop")
             {
-                //graph.DrawImage()
-                for (int i = 0; i < 100; i++)
+                graph.DrawImage(Properties.Resources.dylonPoopy, playerRect);
+            }
+            else if(type == "embarassed")
+            {
+                    graph.DrawImage(Properties.Resources.dylonEmbarassed, playerRect);
+            }
+
+            for (int i = -30; i < 80; i++)
+            {
+                try
                 {
                     graph.FillRectangle(gameOverBrush, screenRect);
                     gameOverBrush.Color = Color.FromArgb(i, 139, 69, 19);
                 }
+                catch
+                {
 
+                }
             }
-            else if(type == "embarassed")
+            
+            if (type == "poop")
             {
-
+                graph.DrawString("you pooped your pants...", new Font("Outline Pixel7", 45, FontStyle.Regular), testBrush, new Rectangle(30, this.Height / 2 - 40, this.Width, 100));
             }
+            else if (type == "embarassed")
+            {
+                graph.DrawString("someone caught you...", new Font("Outline Pixel7", 50, FontStyle.Regular), testBrush, new Rectangle(40, this.Height / 2 - 40, this.Width, 100));
+            }
+
+
+            System.Threading.Thread.Sleep(2000);
 
             Form1.mainGameMusic.Stop();
             Form1.titleMusic.Play();
