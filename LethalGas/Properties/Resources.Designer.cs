@@ -162,6 +162,16 @@ namespace LethalGas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dylonEmbarassed {
+            get {
+                object obj = ResourceManager.GetObject("dylonEmbarassed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dylonFart {
             get {
                 object obj = ResourceManager.GetObject("dylonFart", resourceCulture);
@@ -185,6 +195,16 @@ namespace LethalGas.Properties {
         internal static System.Drawing.Bitmap dylonIdle2 {
             get {
                 object obj = ResourceManager.GetObject("dylonIdle2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dylonPoop {
+            get {
+                object obj = ResourceManager.GetObject("dylonPoop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
