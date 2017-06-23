@@ -9,6 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 
+/// <summary>
+/// By Dylon Lemus and Stefan Andrekovic
+/// For: Mr. Theodoropolous, Arcade Cabinet, anyone else who cares
+/// Finished 2017-06-23 00:05
+/// Farting game
+/// Reference source: http://www.addictinggames.com/funny-games/hidethefart.jsp
+/// Screens and good looking shit, player movement, animator, daylight cycle, highscore dude - Dylon Lemus
+/// Art, music, farts, pedestrians, engine mechanics - Stefan Andrekovic
+/// 
+/// Thanks for teaching us how to code.
+/// Thanks for letting us be shit-heads and have fun
+/// Hope you enjoy.
+/// Have a good life
+/// </summary>
+
 namespace LethalGas
 {
     public partial class mainGame : UserControl
