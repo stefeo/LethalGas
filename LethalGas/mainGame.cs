@@ -227,8 +227,12 @@ namespace LethalGas
             else if (day >= 1360 && day < 1329) { brightness2--; }
             else if (day == 2100) { day = 0; }
 
-            backBrush.Color = Color.FromArgb(brightness, 0, 0, 0);
-            backBrush2.Color = Color.FromArgb(brightness2, 0, 0, 0);
+            try
+            {
+                backBrush.Color = Color.FromArgb(brightness, 0, 0, 0);
+                backBrush2.Color = Color.FromArgb(brightness2, 0, 0, 0);
+            }
+            catch { }
 
         }
 
