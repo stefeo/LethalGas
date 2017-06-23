@@ -69,11 +69,11 @@ namespace LethalGas
         private void mainGame_Load(object sender, EventArgs e)
         {
             Form1.score = 0;
-            //Form1.mainGameMusic.
             Form1.mainGameMusic.Play();
 
             gameOver = false;
 
+            //filling lists.
             #region Images
             characters.Add(Properties.Resources.dylonStillRN);
             characters.Add(Properties.Resources.dylonWalk1RN);
@@ -117,7 +117,7 @@ namespace LethalGas
         }
          
         public void lightPoints()
-        {
+        {//these represent the shapes made by the lamp post's light.
             triangle[0] = new Point(0, 0);
             triangle[1] = new Point(0, this.Height-150);
             triangle[2] = new Point(this.Width - 226, this.Height - 445);
@@ -216,7 +216,7 @@ namespace LethalGas
         }
 
         public void dayChange()
-        {
+        {//cycles the daylight
             day++;
             
             if (day > 500 && day < 730) { brightness++; }
@@ -332,6 +332,7 @@ namespace LethalGas
 
             #endregion
 
+            #region Player movement
             playerRect.X = position;
             playerHitbox.X = position + 36;
 
@@ -368,6 +369,7 @@ namespace LethalGas
                     imgStill = 0;
                 }
             }
+            #endregion
 
             Refresh();
         }
@@ -508,16 +510,16 @@ namespace LethalGas
         }
 
         public void imageChange()
-        {
+        {//cycling image index for animation
             img++;
-            if (img == 40)
+            if (img >= 40)
             {
                 img = 0;
             }
         }
 
         public void SpawnNPC()
-        {
+        {//spawns npc's at random times, increases as your score increases
             if (randNum.Next(0, 120 - pedSpawnFactor) == 1)
             {//charcter randomness
                 if (randNum.Next(1, 3) == 1)
@@ -587,7 +589,7 @@ namespace LethalGas
         }
 
         public void GrowFarts()
-        {
+        {//grows all farts and deletes farts which reach the end of their lives.
             List<int> fartsToRemove = new List<int>();
 
             foreach (GasCloud f in farts)
@@ -608,7 +610,7 @@ namespace LethalGas
         }
 
         public void DespawnNPC()
-        {
+        {//despawns NPCs that walk off screen to preserve memory
             List<int> nPCToRemove = new List<int>();
 
             foreach (Pedestrian p in peds)
@@ -632,7 +634,7 @@ namespace LethalGas
         }
 
         public void GameOver(string type)
-        {
+        {//game over method
             scoreLabel.Visible = false;
             timeLabel.Visible = false;
 
